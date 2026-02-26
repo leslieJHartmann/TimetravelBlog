@@ -3,25 +3,35 @@ import { useEffect, useState } from "react";
 function Glitch({ children, auto = false, burstOnHover = false }) {
   const [glitching, setGlitching] = useState(false);
 
-  // Random auto glitch bursts
+  // Trigger glitch burst
+  const triggerGlitch = () => {
+    setGlitching(true);
+  };
+
+  // random timer
   useEffect(() => {
     if (!auto) return;
 
-    const trigger = () => {
-      setGlitching(true);
+    let timeout;
+
+    const min = 2000; // 2 seconds
+    const max = 10000; // 10 seconds
+
+    const scheduleNext = () => {
+      const delay = Math.random() * (max - min) + min;
+
+      timeout = setTimeout(() => {
+        triggerGlitch();
+        scheduleNext();
+      }, delay);
     };
 
-    const interval = setInterval(
-      () => {
-        trigger();
-      },
-      Math.random() * 60000 + 4000,
-    );
+    scheduleNext();
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timeout);
   }, [auto]);
 
-  // Animation end handler (important!)
+  // Animation end handler
   const handleAnimationEnd = () => {
     setGlitching(false);
   };
