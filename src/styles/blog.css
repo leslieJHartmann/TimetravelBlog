@@ -38,12 +38,36 @@ body {
   padding: 20px;
 }
 
-/* Add a card effect for articles */
+/* Thumbnail for the blog entry previews */
+.thumbnailimg {
+  background-color: black;
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+
+}
+
+/* Add a card effect for article boxes */
+.blogcard {
+ filter: drop-shadow(5px 5px 0px rgb(255, 255, 255));
+ padding: 20px;
+}
+
+.innerblogcard {
+   background-color: rgb(12, 13, 16);
+   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 40%, 75% 0);
+   padding: 20px;
+}
+
+
+/* Add a card effect for sidebar boxes */
 .card {
-   background-color: white;
+   background-color:rgb(12, 13, 16);
    padding: 20px;
    margin-top: 20px;
+   clip-path: polygon(30% 0%, 100% 0%, 100% 100%,  0% 100%, 0% 30%);
 }
+
 
 /* Clear floats after the columns */
 .row:after {
