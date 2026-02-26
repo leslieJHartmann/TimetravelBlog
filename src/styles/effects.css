@@ -1,7 +1,7 @@
 .glitch-container {
   position: relative;
   display: inline-block;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .glitch-content {
@@ -23,6 +23,7 @@
 /* Activate */
 .glitch-active .glitch-overlay {
   opacity: 1;
+  mix-blend-mode: screen;
 }
 
 /* ===== SLICE CLIPPING ===== */

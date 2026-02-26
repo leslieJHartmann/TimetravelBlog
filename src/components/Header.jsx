@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="header">
       <h2>
-        <Glitch auto>Timetravel Blog</Glitch>
+        <Glitch auto>TEA & TIME</Glitch>
       </h2>
     </div>
   );
