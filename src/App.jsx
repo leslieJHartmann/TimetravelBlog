@@ -1,7 +1,9 @@
 import Header from "./components/Header";
 import BlogLayout from "./components/BlogLayout";
 import Footer from "./components/Footer";
+import Glitch from "./components/glitch";
 import "./styles/blog.css";
+import "./styles/effects.css";
 
 function App() {
   return (

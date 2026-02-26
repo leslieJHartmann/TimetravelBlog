@@ -1,0 +1,79 @@
+.glitch-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.glitch-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Base overlay */
+.glitch-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+  mix-blend-mode: screen;
+  filter: saturate(250%);
+}
+
+/* Activate */
+.glitch-active .glitch-overlay {
+  opacity: 1;
+}
+
+/* ===== SLICE CLIPPING ===== */
+
+.slice-1 {
+  clip-path: inset(0 0 55% 0);
+}
+
+.slice-2 {
+  clip-path: inset(25% 0 25% 0);
+}
+
+.slice-3 {
+  clip-path: inset(55% 0 0 0);
+}
+
+/* ===== AGGRESSIVE MOVEMENT ===== */
+
+.glitch-active .slice-1 {
+  animation: tear1 200ms steps(2, end);
+}
+
+.glitch-active .slice-2 {
+  animation: tear2 500ms steps(2, end);
+}
+
+.glitch-active .slice-3 {
+  animation: tear3 650ms steps(2, end);
+}
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes tear1 {
+  0%   { transform: translate(0); }
+  10%  { transform: translate(-100px, 10px); color: lightgreen; opacity: 20%;}
+  50%  { transform: translate(-100px, 10px); color: lightgreen; opacity: 90%;}  /* LONG HOLD */
+  75%  { transform: translate(20px, -6px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes tear2 {
+  0%   { transform: translate(0); }
+  10%  { transform: translate(100px, -6px); color: magenta; opacity: 20%;}
+  50%  { transform: translate(100px, -6px); color: magenta; opacity: 70%;} /* HOLD */
+  75%  { transform: translate(80px, 4px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes tear3 {
+  0%   { transform: translate(0); }
+  50%  { transform: translate(-70px, 10px); color: cyan; opacity: 20%;} /* HOLD */
+  75%  { transform: translate(20px, -6px); color: cyan; opacity: 90%;}
+  100% { transform: translate(0); }
+}

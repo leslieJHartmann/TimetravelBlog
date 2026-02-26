@@ -1,7 +1,11 @@
+import Glitch from "./glitch";
+
 function Header() {
   return (
     <div className="header">
-      <h2>Timetravel Blog </h2>
+      <h2>
+        <Glitch auto>Timetravel Blog</Glitch>
+      </h2>
     </div>
   );
 }

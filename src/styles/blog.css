@@ -41,10 +41,9 @@ body {
 /* Thumbnail for the blog entry previews */
 .thumbnailimg {
   background-color: black;
-  width: 200px;
-  height: 200px;
-  padding: 20px;
-
+  image-rendering: auto;
+  width: 288px;
+  height: 202px;
 }
 
 /* Add a card effect for article boxes */

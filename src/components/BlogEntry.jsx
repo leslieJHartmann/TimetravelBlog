@@ -2,16 +2,22 @@ function BlogEntry({ title, description, date }) {
   return (
     <div className="blogcard">
       <div className="innerblogcard">
+        <img
+          src="src\assets\thumbnail1.png"
+          alt="Hand on keyboard"
+          className="thumbnailimg"
+        ></img>
         <h2>{title}</h2>
         <h5>
           {description}, {date}
         </h5>
-        <div className="thumbnailimg">Image</div>
-        <p>Some text..</p>
+
+        <p>Observations of a dying world.</p>
         <p>
-          Sunt in culpa qui officia deserunt mollit anim id est laborum
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua.
+          They used to tell stories about humanity’s end. Grand catastrophes,
+          explosives, screams. Turns out real death creeps in more silently.
+          There was no grand scheme, no villain for us to stop. By the time they
+          realised, it was already too late. So here we are now...
         </p>
       </div>
     </div>
