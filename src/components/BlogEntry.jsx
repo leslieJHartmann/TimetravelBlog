@@ -3,7 +3,7 @@ function BlogEntry({ title, description, date }) {
     <div className="blogcard">
       <div className="innerblogcard">
         <img
-          src="/public/thumbnail1.png"
+          src="/images/thumbnail1.png"
           alt="Hand on keyboard"
           className="thumbnailimg"
         />
