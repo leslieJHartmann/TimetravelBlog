@@ -91,7 +91,13 @@ body {
   position: relative;
   z-index: 1;
   
+  transition: transform 0.1s ease, filter 0.1s ease;
 ;
+}
+
+.blogcard:hover {
+  transform: scale(1.00008);
+  transform: translateY(-19px);
 }
 
 .innerblogcard {
@@ -106,6 +112,7 @@ body {
   border-color: white;
 
 }
+
 
 
 /* Add a card effect for sidebar boxes */
