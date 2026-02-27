@@ -6,7 +6,7 @@ function BlogLayout() {
     <div className="row">
       <div className="leftcolumn">
         <BlogEntry
-          title="Goodbye World"
+          title="GOODBYE WORLD."
           date="14.08.2229"
           author="P4r4D0x"
           description={
@@ -16,8 +16,11 @@ function BlogLayout() {
 
         <BlogEntry
           title="TITLE HEADING"
-          description="Title description"
-          date="Sep 2, 2017"
+          date="28.01.2230"
+          author="P4r4D0x"
+          description="Gotta admit... I thought it was beyond me to be surprised anymore.
+Or maybe I’m hallucinating. It beats staring into space, so we’re investigating. This... Anomaly. Thought time weirdness was a sci-fi thing. People made it up.
+Well, if you’re reading this, I guess that can’t be true."
         />
       </div>
 

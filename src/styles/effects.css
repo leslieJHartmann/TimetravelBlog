@@ -2,6 +2,17 @@
   position: relative;
   display: inline-block;
   overflow: visible;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Hover Effect */
+.hover-enabled {
+  transition: transform 0.02s ease, filter 0.10s ease;
+}
+
+.hover-enabled:hover {
+  transform: scale(1.008);
+  filter: brightness(1.2);
 }
 
 .glitch-content {
@@ -12,6 +23,8 @@
 /* Base overlay */
 .glitch-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
   inset: 0;
   pointer-events: none;
   opacity: 0;

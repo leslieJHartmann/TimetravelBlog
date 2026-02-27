@@ -61,18 +61,23 @@ body {
   background: black;
 }
 
-.blogEntryTitle {
+.title-wrapper {
   transform: translate(310px, -25px);
+}
+
+.blogEntryTitle {
   position:static;
 }
 
 .blogEntrySub {
-  transform: translate(310px, -45px);
+  transform: translate(310px, -70px);
   position:static;
 }
 
 .blogEntryDesc {
-  transform: translate(0,-40px);
+  transform: translate(0,-60px);
+  color: rgb(179, 179, 179);
+  position: static;
 }
 
 .blogcard {
@@ -92,7 +97,11 @@ body {
 .innerblogcard {
   background-color: #0C0D10;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 40%, 75% 0);
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+
+  height: 242px;
   border-style: solid;
   border-color: white;
 
