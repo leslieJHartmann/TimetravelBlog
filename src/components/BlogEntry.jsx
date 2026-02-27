@@ -1,4 +1,8 @@
-function BlogEntry({ title, description, date }) {
+// inserts data from BlogLayout into the card
+
+import Glitch from "./Glitch";
+
+function BlogEntry({ title, description, date, author }) {
   return (
     <div>
       <div className="blogcard">
@@ -7,20 +11,16 @@ function BlogEntry({ title, description, date }) {
           alt="Hand on keyboard"
           className="thumbnailimg"
         />
-
         <div className="innerblogcard">
-          <h2 className="blogEntryTitle">Goodbye World</h2>
-          <h5>
-            {description}, {date}
+          <Glitch auto>
+            <h2 className="blogEntryTitle">{title}</h2>
+          </Glitch>
+          <h5 className="blogEntrySub">
+            {date}
+            <br></br>
+            {author}
           </h5>
-
-          <p>Observations of a dying world.</p>
-          <p>
-            They used to tell stories about humanity’s end. Grand catastrophes,
-            explosives, screams. Turns out real death creeps in more silently.
-            There was no grand scheme, no villain for us to stop. By the time
-            they realised, it was already too late. So here we are now...
-          </p>
+          <p className="">{description}</p>
         </div>
       </div>
     </div>
