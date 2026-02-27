@@ -6,7 +6,7 @@ function BlogEntry({ title, description, date }) {
           src="/src/assets/thumbnail1.png"
           alt="Hand on keyboard"
           className="thumbnailimg"
-        ></img>
+        />
         <h2>{title}</h2>
         <h5>
           {description}, {date}
