@@ -1,4 +1,4 @@
-import Glitch from "./glitch";
+import Glitch from "./Glitch.jsx";
 
 function Header() {
   return (
