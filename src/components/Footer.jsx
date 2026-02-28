@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div className="footer">
-      <h2>Footer</h2>
+      <h3>To past lived and future lost. -M</h3>
     </div>
   );
 }
