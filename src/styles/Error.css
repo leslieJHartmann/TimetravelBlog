@@ -1,0 +1,57 @@
+.error {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  background: #0c0d10;
+}
+
+.errorFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   
+
+  padding-top: 25px;
+  margin-bottom: 100px;
+  width: 100%;
+  max-width: 900px;
+
+  border: 1px solid white;
+  background-color: #0c0d10;
+  filter: drop-shadow(6px 10px 0px #59ffff2f);
+}
+
+.symbol {
+    transform: rotateX(180deg);
+
+  filter: drop-shadow(0 0 15px #a9b0db);
+  width: 300px;
+  height: 300px;
+}
+
+.errorHeading {
+    text-align:center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+
+.errorButton {
+    z-index: 1;
+    margin-top: -180px;
+  background: none;
+  border: none;
+  color: #59FFFF;
+  font-family: "Fragment Mono", monospace;
+  cursor: pointer;
+  padding: 0;
+}
+
+.errorButton::before {
+  content: "▶ "; 
+}
+
+.errorButton:hover {
+  color: #ffffff;
+}
