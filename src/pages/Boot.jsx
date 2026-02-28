@@ -77,7 +77,7 @@ export default function Boot() {
 
   return (
     <div className="boot">
-      <Glitch auto>
+      <Glitch auto soundEnabled soundSrc="/sfx/tinyFlicker.wav">
         <div className="outerBootFrame">
           <div className="bootFrame">
             <div className="scanlines" />

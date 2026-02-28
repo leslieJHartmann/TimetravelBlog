@@ -4,7 +4,7 @@ import Logo from "/src/assets/Logo_noGlitch.svg?react";
 function Header() {
   return (
     <div className="header">
-      <Glitch auto burstOnHover soundEnabled>
+      <Glitch auto burstOnHover soundEnabled soundSrc="/sfx/tinyFlicker.wav">
         <Logo className="headerLogo" />
       </Glitch>
       <h2>
