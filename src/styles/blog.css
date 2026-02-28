@@ -10,7 +10,7 @@
 
 .leftcolumn{
   float: none;
-  width: auto;
+  width: fit-content;
   height: 750px;
 
   overflow-y: scroll;
@@ -24,7 +24,7 @@
 
 .rightcolumn {
   float: none;
-  width: auto;
+  width: fit-content;
   height: 750px;
 }
 
@@ -43,20 +43,6 @@ body {
   text-align: left;
   background: transparent;
   margin-bottom: 3%;
-}
-
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-  float: left;
-  width: 75%;
-}
-
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 25%;
-  padding-left: 20px;
 }
 
 /* Fake image */
@@ -83,7 +69,7 @@ body {
 }
 
 .title-wrapper {
-  transform: translate(310px, -25px);
+  transform: translate(0, -25px);
 }
 
 .blogEntryTitle {
@@ -91,18 +77,16 @@ body {
 }
 
 .blogEntrySub {
-  transform: translate(310px, -70px);
+  transform: translate(0, -60px);
   position:static;
 }
 
 .blogEntryDesc {
-  transform: translate(0,-60px);
+  transform: translate(-40px);
   color: rgb(179, 179, 179);
   position: static;
 
-  width: 950px;
-  padding-right: 90px;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .blogcard {
@@ -112,7 +96,8 @@ body {
   padding-right: 20px;
   padding-top: 40px;
   margin-bottom: 100px;
-  width: 910px;;
+  width: 100%;
+  max-width: 900px;
 
   z-index: 1;
   
@@ -129,12 +114,14 @@ body {
 .innerblogcard {
   background-color: #0C0D10;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 40%, 75% 0);
-  padding-left: 20px;
+
+  padding-left: 340px; /* image width + spacing */
   padding-top: 20px;
   padding-right: 20px;
 
-  height: 260px;
-  width: 920px;
+  min-height: 260px;
+  max-height: fit-content;
+  width: 100%;
   border-style: solid;
   border-color: white;
 
