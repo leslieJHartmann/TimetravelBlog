@@ -1,19 +1,10 @@
-import Header from "./components/Header";
-import BlogLayout from "./components/BlogLayout";
-import Footer from "./components/Footer";
-import "./styles/blog.css";
-import "./styles/effects.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Home from "./pages/Home.jsx";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <div className="container">
-        <Header />
-        <BlogLayout />
-        <Footer />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
-
-export default App;
