@@ -104,3 +104,40 @@
   mix-blend-mode: overlay;
   opacity: 0.25;
 }
+
+/* INPUT STYLING */
+
+.loginRow {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-family: "Fragment Mono", monospace;
+  color: rgba(210, 235, 255, 0.9);
+}
+
+.bootInput {
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(210, 235, 255, 0.95);
+  padding: 8px 10px;
+  font-family: "Fragment Mono", monospace;
+  outline: none;
+  width: 220px;
+}
+
+.bootInput:focus {
+  border-color: rgba(89, 255, 255, 0.9);
+  box-shadow: 0 0 12px rgba(89, 255, 255, 0.2);
+}
+
+
+.bootError {
+  margin-top: 15px;
+  color: rgba(255, 80, 120, 0.9);
+  font-family: "Fragment Mono", monospace;
+}

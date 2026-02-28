@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/boot.css";
+import Glitch from "../components/Glitch";
 
 export default function Boot() {
   const navigate = useNavigate();
@@ -26,6 +27,12 @@ export default function Boot() {
 
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const playDeniedSound = () => {
+    const sfx = new Audio("/sfx/access-denied.mp3");
+    sfx.volume = 0.7;
+    sfx.play().catch(() => {});
+  };
 
   // Boot line typing
   useEffect(() => {
@@ -55,6 +62,9 @@ export default function Boot() {
       navigate("/home", { replace: true });
       return;
     }
+    {
+      sound && <audio ref={audioRef} src="/sfx/glitch.mp3" preload="auto" />;
+    }
 
     setError("ACCESS DENIED");
     setPassword("");
@@ -62,51 +72,56 @@ export default function Boot() {
 
   return (
     <div className="boot">
-      <div className="outerBootFrame">
-        <div className="bootFrame">
-          <div className="scanlines" />
-          <div className="bootHeader">INITIALIZING</div>
+      <Glitch auto>
+        <div className="outerBootFrame">
+          <div className="bootFrame">
+            <div className="scanlines" />
+            <div className="bootHeader">INITIALIZING</div>
 
-          <div className="bootText">
-            {lines.slice(0, shown).map((l, i) => (
-              <div key={i} className="bootLine">
-                <span className="prompt">▶</span> {l}
-              </div>
-            ))}
+            <div className="bootText">
+              {lines.slice(0, shown).map((l, i) => (
+                <div key={i} className="bootLine">
+                  <span className="prompt">▶</span> {l}
+                </div>
+              ))}
 
-            {!done ? (
-              <div className="cursorRow">
-                <span className="prompt">▶</span> <span className="cursor" />
-              </div>
-            ) : (
-              <div className="loginRow">
-                <span className="prompt">▶</span>
-                <span className="label"> KEY: </span>
-                <input
-                  className="bootInput"
-                  type="password"
-                  value={password}
-                  autoFocus
-                  onChange={(e) => setPassword(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") submit();
-                  }}
-                />
-                <button className="bootBtn" type="button" onClick={submit}>
-                  ENTER
-                </button>
-              </div>
-            )}
+              {!done ? (
+                <div className="cursorRow">
+                  <span className="prompt">▶</span> <span className="cursor" />
+                </div>
+              ) : (
+                <div className="loginRow">
+                  <span className="prompt">▶</span>
+                  <span className="label"> KEY: </span>
+                  <input
+                    className="bootInput"
+                    type="password"
+                    value={password}
+                    autoFocus
+                    onChange={(e) => setPassword(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") submit();
+                    }}
+                  />
+                </div>
+              )}
 
-            {error && <div className="bootError">{error}</div>}
+              {error && (
+                <div className="bootError">
+                  <Glitch auto burstOnHover sound>
+                    {error}
+                  </Glitch>
+                </div>
+              )}
+            </div>
+
+            <div className="bootBar">
+              <div className="bootBarFill" style={{ width: `${progress}%` }} />
+            </div>
+            <div className="bootFooter">{progress}%</div>
           </div>
-
-          <div className="bootBar">
-            <div className="bootBarFill" style={{ width: `${progress}%` }} />
-          </div>
-          <div className="bootFooter">{progress}%</div>
         </div>
-      </div>
+      </Glitch>
     </div>
   );
 }
