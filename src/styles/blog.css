@@ -2,23 +2,30 @@
   box-sizing: border-box;
 }
 
-.leftcolumn {
+.row {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr;
+  gap: 40px;
+}
+
+.leftcolumn{
+  float: none;
+  width: auto;
+  height: 750px;
+
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior:smooth;
-
-  height: 800px;
-  max-width: 90%;
-  width: 75%;
-  padding: 80px 80px 20px 20px;
-  border-radius: 2px;
+  padding-top:80px;
 
   background-image: linear-gradient(to bottom, #1c204d3a, #1c204d00, #1c204d3a );
+
 }
-.rightcolumn,
-.container,
-.row {
-  position: relative;
+
+.rightcolumn {
+  float: none;
+  width: auto;
+  height: 750px;
 }
 
 /* Add a dark background color with some padding */
@@ -26,6 +33,7 @@ body {
   font-family: Arial;
   padding: 20px;
   background: transparent;
+  
 }
 
 /* Header/Blog Title */
