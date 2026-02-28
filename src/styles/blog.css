@@ -2,7 +2,13 @@
   box-sizing: border-box;
 }
 
-.leftcolumn,
+.leftcolumn {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 800px;
+  padding-top: 80px;
+  padding-right: 20px;
+}
 .rightcolumn,
 .container,
 .row {
@@ -44,6 +50,7 @@ body {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
+  
 }
 
 .thumbnailimg {
@@ -95,7 +102,7 @@ body {
 }
 
 .blogcard:hover {
-  transform: scale(101%);
+  transform: scale(1.001);
 
   filter: drop-shadow(6px 10px 0px #59ffffb0);
 }
