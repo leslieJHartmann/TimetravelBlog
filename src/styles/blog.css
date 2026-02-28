@@ -33,6 +33,15 @@ display: grid;
   float: none;
   width: fit-content;
   height: 750px;
+
+    transform: translateY(-20px);
+  filter: drop-shadow(6px 10px 0px #59ffff2f);
+  
+  padding-right: 10px;
+  padding-top: 25px;
+  max-width: 900px;
+
+  z-index: 1;
 }
 
 /* Add a dark background color with some padding */
@@ -124,7 +133,6 @@ body {
 
 }
 
-/* Add a card effect for sidebar boxes */
 .sideCard {
    background-color:rgb(12, 13, 16);
    border: 1px solid white;
@@ -141,8 +149,13 @@ body {
 .sideCard p {
   color: rgb(179, 179, 179);
 
-  padding-top: 20px;;
+  text-align: center;
+}
 
+.sidebarImage {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
 }
 
 /* Footer */

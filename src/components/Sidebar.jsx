@@ -1,18 +1,17 @@
-import Logo from "./src/assets/Logo.svg?react";
+import Glitch from "./Glitch";
+import Logo from "/src/assets/Logo.svg?react";
 
 function Sidebar() {
   return (
     <div className="rightcolumn">
       <div className="sideCard">
         <h2>[ DATA NOT FOUND ]</h2>
-        <p>Welcome, [ User Unknown ]</p>
         <div>
-          <Logo></Logo>
+          <Glitch burstOnHover>
+            <Logo className="sidebarImage"></Logo>
+          </Glitch>
         </div>
-        <br />
-        <div className="fakeimg">Image</div>
-        <br />
-        <div className="fakeimg">Image</div>
+        <p>Welcome, [ User Unknown ]</p>
       </div>
     </div>
   );
