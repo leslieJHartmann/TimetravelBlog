@@ -125,11 +125,24 @@ body {
 }
 
 /* Add a card effect for sidebar boxes */
-.card {
+.sideCard {
    background-color:rgb(12, 13, 16);
+   border: 1px solid white;
+   width:300px;
    padding: 20px;
-   margin-top: 20px;
    clip-path: polygon(30% 0%, 100% 0%, 100% 100%,  0% 100%, 0% 30%);
+}
+
+.sideCard h2 {
+  text-align: right;
+  font-size: medium;
+}
+
+.sideCard p {
+  color: rgb(179, 179, 179);
+
+  padding-top: 20px;;
+
 }
 
 /* Footer */
