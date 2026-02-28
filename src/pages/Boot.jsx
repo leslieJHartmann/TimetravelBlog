@@ -66,31 +66,41 @@ export default function Boot() {
     setError("");
 
     if (password.trim().toLowerCase() === PASSWORD.toLowerCase()) {
-      sessionStorage.setItem("tt_unlocked", "1");
       playAccessSound();
-      navigate("/home", { replace: true });
+      navigate("/home", { replace: true }); // navigate to main page
 
-      // increase fail count
-      setFailCount((c) => {
-        const next = c + 1;
-        setError(hintFor(next)); // show hint based on new count
-        return next;
-      });
       return;
     }
 
+    // increase fail count
+    setFailCount((prev) => {
+      const next = prev + 1;
+      setError(hintFor(next)); // show hint based on new count
+      return next;
+    });
+
     playErrorSound();
-    setError("ACCESS DENIED");
     setPassword("");
   };
 
   // password hints
   const hintFor = (n) => {
     if (n < 3) return "ACCESS DENIED";
-    if (n === 3) return "HINT1";
-    if (n === 4) return "HINT2";
-    if (n === 5) return "HINT3";
-    return "HINT 4";
+    if (n === 3) return "LEAVE.";
+    if (n === 4) return "LEAVE..";
+    if (n === 5) return "LEAVE...";
+    if (n < 8) return "No?";
+    if (n < 10) return "[DATA CORRUPTED]";
+    if (n < 11) return "Another curious one, are you?";
+    if (n === 11) return "What's the key...?";
+    if (n === 12) return "TIME.";
+    if (n === 13) return "TIME..";
+    if (n === 14) return "TIME...";
+    if (n === 15) return "Ancient.";
+    if (n === 16) return "Ancient. Forgotten.";
+    if (n < 19) return "Ancient. Forgotten. [DATA NOT FOUND]";
+
+    return "01100011011010000111001001101111011011100110111101110011";
   };
 
   return (
