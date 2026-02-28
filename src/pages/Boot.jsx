@@ -99,6 +99,9 @@ export default function Boot() {
     if (n === 15) return "Ancient.";
     if (n === 16) return "Ancient. Forgotten.";
     if (n < 19) return "Ancient. Forgotten. [DATA NOT FOUND]";
+    if (n < 42)
+      return "01100011011010000111001001101111011011100110111101110011";
+    if (n < 50) return "Seriously? It's basically right here...";
 
     return "01100011011010000111001001101111011011100110111101110011";
   };
