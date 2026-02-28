@@ -5,8 +5,8 @@ import Boot from "./pages/Boot.jsx";
 export default function App() {
   return (
     <Routes>
-      <Route path="/boot" element={<Boot />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Boot />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   );
 }

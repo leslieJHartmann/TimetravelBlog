@@ -5,6 +5,9 @@ import "../styles/boot.css";
 export default function Boot() {
   const navigate = useNavigate();
 
+  // ACCESS PASSWORD
+  const PASSWORD = "chronos";
+
   const lines = useMemo(
     () => [
       "Anomaly v13.8.1",
@@ -13,28 +16,49 @@ export default function Boot() {
       "Decrypting fragments... OK",
       "Synchronizing timelines... Complete",
       "Boot sequence complete.",
-      "Awaiting input...",
+      "Verifying User...",
     ],
     [],
   );
 
   const [shown, setShown] = useState(0);
-  const progress = Math.min(
-    100,
-    Math.round((shown / (lines.length + 2)) * 100),
-  );
+  const [done, setDone] = useState(false);
 
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  // Boot line typing
   useEffect(() => {
-    const t = setInterval(() => setShown((s) => s + 1), 300);
+    if (done) return;
+
+    const t = setInterval(() => {
+      setShown((s) => {
+        const next = s + 1;
+        if (next >= lines.length) {
+          clearInterval(t);
+          setDone(true);
+        }
+        return next;
+      });
+    }, 300);
+
     return () => clearInterval(t);
-  }, []);
+  }, [done, lines.length]);
 
-  useEffect(() => {
-    if (shown >= lines.length + 2) {
-      const t = setTimeout(() => navigate("/blog", { replace: true }), 600);
-      return () => clearTimeout(t);
+  const progress = Math.min(100, Math.round((shown / lines.length) * 100));
+
+  const submit = () => {
+    setError("");
+
+    if (password.trim().toLowerCase() === PASSWORD.toLowerCase()) {
+      sessionStorage.setItem("tt_unlocked", "1");
+      navigate("/home", { replace: true });
+      return;
     }
-  }, [shown, lines.length, navigate]);
+
+    setError("ACCESS DENIED");
+    setPassword("");
+  };
 
   return (
     <div className="boot">
@@ -44,14 +68,37 @@ export default function Boot() {
           <div className="bootHeader">INITIALIZING</div>
 
           <div className="bootText">
-            {lines.slice(0, Math.min(shown, lines.length)).map((l, i) => (
+            {lines.slice(0, shown).map((l, i) => (
               <div key={i} className="bootLine">
                 <span className="prompt">▶</span> {l}
               </div>
             ))}
-            <div className="cursorRow">
-              <span className="prompt">▶</span> <span className="cursor" />
-            </div>
+
+            {!done ? (
+              <div className="cursorRow">
+                <span className="prompt">▶</span> <span className="cursor" />
+              </div>
+            ) : (
+              <div className="loginRow">
+                <span className="prompt">▶</span>
+                <span className="label"> KEY: </span>
+                <input
+                  className="bootInput"
+                  type="password"
+                  value={password}
+                  autoFocus
+                  onChange={(e) => setPassword(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") submit();
+                  }}
+                />
+                <button className="bootBtn" type="button" onClick={submit}>
+                  ENTER
+                </button>
+              </div>
+            )}
+
+            {error && <div className="bootError">{error}</div>}
           </div>
 
           <div className="bootBar">
