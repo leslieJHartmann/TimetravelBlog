@@ -43,15 +43,6 @@ body {
   
 }
 
-/* Header/Blog Title */
-.header {
-  font-size: 40px;
-  text-align: left;
-
-  width: 100%;
-  margin: 0;
-}
-
 /* Fake image */
 .fakeimg {
   background-color: #aaa;
@@ -182,4 +173,31 @@ p {
   font-family: 'Saira', sans-serif;
   font-size: medium;
   
+}
+
+/* Header/Blog Title */
+.header {
+  font-size: 40px;
+  text-align: left;
+
+  width: 100%;
+  margin-bottom: 60px;
+
+   display: flex;
+  align-items: center; 
+  gap: 16px;           
+}
+
+.headerLogo {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  display: inline;
+
+
+  transition: filter 0.1s ease-in-out;
+}
+
+.headerLogo:hover {
+  filter: brightness(190%);
 }
