@@ -7,7 +7,7 @@ function Sidebar() {
       <div className="sideCard">
         <h2>[ DATA NOT FOUND ]</h2>
         <div>
-          <Glitch burstOnHover>
+          <Glitch auto>
             <Logo className="sidebarImage"></Logo>
           </Glitch>
         </div>
