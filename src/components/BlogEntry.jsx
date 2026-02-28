@@ -13,9 +13,11 @@ function BlogEntry({ title, description, date, author }) {
 
       <div className="innerblogcard">
         <div className="entryHeader">
-          <Glitch burstOnHover sound>
-            <h2 className="blogEntryTitle">{title}</h2>
-          </Glitch>
+          <h2 className="blogEntryTitle">
+            <Glitch burstOnHover sound>
+              {title}
+            </Glitch>
+          </h2>
 
           <h5 className="blogEntrySub">
             {date}

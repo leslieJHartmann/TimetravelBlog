@@ -16,6 +16,7 @@
 }
 
 .glitch-content {
+  color: #59FFFF;
   position: relative;
   z-index: 1;
 }
@@ -80,7 +81,7 @@
 @keyframes tear2 {
   0%   { transform: translate(0); }
   10%  { transform: translate(100px, -6px); color: magenta; opacity: 20%;}
-  50%  { transform: translate(100px, -6px); color: magenta; opacity: 70%;} /* HOLD */
+  50%  { transform: translate(100px, -6px); color: magenta; opacity: 90%;} /* HOLD */
   75%  { transform: translate(80px, 4px); }
   100% { transform: translate(0); }
 }
