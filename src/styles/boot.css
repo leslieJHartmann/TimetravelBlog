@@ -1,0 +1,106 @@
+.boot {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #0c0d10;
+}
+
+.outerBootFrame{
+  filter: drop-shadow(6px 10px 0px #59ffff2f);
+}
+
+.bootFrame {
+  position: relative;
+  width: min(860px, 92vw);
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 40%, 75% 0);
+  padding: 26px 22px;
+  border: 1px solid white;
+  background: #0C0D10;
+  filter: drop-shadow(6px 10px 0px #59ffff2f);
+  overflow: hidden;
+}
+
+.bootHeader {
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  color: #59ffff;
+  letter-spacing: 3px;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.bootText {
+  font-family: "Fragment Mono", monospace;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 240px;
+}
+
+.bootLine {
+  opacity: 0;
+  animation: popIn 120ms linear forwards;
+}
+
+@keyframes popIn {
+  to { opacity: 1; }
+}
+
+.prompt {
+  color: #59ffff;
+  margin-right: 8px;
+}
+
+.cursorRow {
+  margin-top: 6px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 16px;
+  background: #59ffff;
+  vertical-align: -3px;
+  animation: blink 700ms steps(2, end) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.bootBar {
+  height: 8px;
+  margin-top: 18px;
+  border: 1px solid rgba(89, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.bootBarFill {
+  height: 100%;
+  background: rgba(89, 255, 255, 0.75);
+  transition: width 220ms linear;
+}
+
+.bootFooter {
+  margin-top: 10px;
+  font-family: "Fragment Mono", monospace;
+  color: rgba(89, 255, 255, 0.75);
+  font-size: 12px;
+  text-align: right;
+}
+
+/* subtle scanlines */
+.scanlines {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    rgba(0, 0, 0, 0) 3px,
+    rgba(0, 0, 0, 0) 6px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+}
