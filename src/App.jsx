@@ -7,9 +7,11 @@ import "./styles/effects.css";
 function App() {
   return (
     <>
-      <Header />
-      <BlogLayout />
-      <Footer />
+      <div className="container">
+        <Header />
+        <BlogLayout />
+        <Footer />
+      </div>
     </>
   );
 }
