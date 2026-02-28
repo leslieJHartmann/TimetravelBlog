@@ -10,7 +10,6 @@
 
 .leftcolumn{
   float: none;
-  width: fit-content;
   height: 750px;
 
   overflow-y: scroll;
@@ -84,7 +83,7 @@ body {
 }
 
 .blogEntryDesc {
-  margin-top: -35px;
+  margin-top: -40px;
   margin-bottom: -10px;
   padding-left: 0; 
   color: rgb(179, 179, 179);
@@ -152,8 +151,9 @@ body {
 }
 
 .container {
-    max-width: 60%;
-    margin: 0 auto;
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto; /*Center on page*/
 }
 
 h1, h2 {
@@ -167,4 +167,10 @@ h3, h4, h5, h6 {
   font-weight: bold;
 
   color: #4975AE;
+}
+
+p {
+  font-family: 'Saira', sans-serif;
+  font-size: medium;
+  
 }
