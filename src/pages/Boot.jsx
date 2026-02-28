@@ -8,6 +8,7 @@ export default function Boot() {
 
   // ACCESS PASSWORD
   const PASSWORD = "chronos";
+  const [failCount, setFailCount] = useState(0); // for wrong password enter
 
   const lines = useMemo(
     () => [
@@ -60,6 +61,7 @@ export default function Boot() {
 
   const progress = Math.min(100, Math.round((shown / lines.length) * 100));
 
+  // password input
   const submit = () => {
     setError("");
 
@@ -67,12 +69,28 @@ export default function Boot() {
       sessionStorage.setItem("tt_unlocked", "1");
       playAccessSound();
       navigate("/home", { replace: true });
+
+      // increase fail count
+      setFailCount((c) => {
+        const next = c + 1;
+        setError(hintFor(next)); // show hint based on new count
+        return next;
+      });
       return;
     }
 
     playErrorSound();
     setError("ACCESS DENIED");
     setPassword("");
+  };
+
+  // password hints
+  const hintFor = (n) => {
+    if (n < 3) return "ACCESS DENIED";
+    if (n === 3) return "HINT1";
+    if (n === 4) return "HINT2";
+    if (n === 5) return "HINT3";
+    return "HINT 4";
   };
 
   return (
@@ -115,9 +133,11 @@ export default function Boot() {
 
                 {error && (
                   <div className="bootError">
-                    <Glitch auto burstOnHover>
-                      {error}
-                    </Glitch>
+                    {error}
+                    <span className="attempts">
+                      {" "}
+                      ({failCount} failed attempt{failCount === 1 ? "" : "s"})
+                    </span>
                   </div>
                 )}
               </div>

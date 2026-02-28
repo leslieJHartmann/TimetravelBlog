@@ -140,3 +140,11 @@
   color: rgba(255, 80, 120, 0.9);
   font-family: "Fragment Mono", monospace;
 }
+
+/* Password attempts */
+.attempts {
+  opacity: 0.4;
+  color: white;
+  margin-left: 6px;
+  font-size: 15px;
+}
